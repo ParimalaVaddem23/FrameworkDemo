@@ -1,25 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite" parallel="tests" thread-count="2">
-    <listeners>
-        <listener class-name="com.ecommerce.qa.listners.ExtentReportListner"/>
-    </listeners>
     <test name="Account page test">
         <parameter name="browser" value="chrome"/>
     <classes>
-        <class name="com.ecommerce.qa.tests.AccountTests"/>
+        <class name="com.ecommerce.qa.tests.SampleAutomation"/>
     </classes>
-    </test>
-    <test name="Search page test">
-        <parameter name="browser" value="firefox"/>
-        <classes>
-            <class name="com.ecommerce.qa.tests.SearchTests"/>
-        </classes>
-    </test>
-    <test name="Product page test">
-        <parameter name="browser" value="firefox"/>
-        <classes>
-            <class name="com.ecommerce.qa.tests.ProductTests"/>
-        </classes>
     </test>
 </suite>
