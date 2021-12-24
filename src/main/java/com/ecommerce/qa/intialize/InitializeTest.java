@@ -22,7 +22,7 @@ public class InitializeTest {
     public SearchPage searchPage;
     public ProductPage productPage;
 
-    @BeforeTest
+    //@BeforeTest
     @Parameters("browser")
     public void setup(String browserName){
         browserFactory= new BrowserFactory();
@@ -35,7 +35,7 @@ public class InitializeTest {
             loginPage = new LoginPage(driver);
             driver.get(prop.getProperty("url"));
     }
-    @AfterTest
+    //@AfterTest
     public void tearDown(){
         driver.quit();
     }
