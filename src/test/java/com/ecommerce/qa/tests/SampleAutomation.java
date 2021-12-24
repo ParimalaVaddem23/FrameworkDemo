@@ -4,22 +4,31 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import java.net.URL;
 
 public class SampleAutomation {
     @Test
-    public void verify_Assertion(){
+    public void verify_Assertion() {
         WebDriver driver;
+        DesiredCapabilities cap = DesiredCapabilities.chrome();
         System.out.println("Executing from Jenkins");
         Assert.assertEquals("Hello", "Hello");
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("headless");
-        options.addArguments("disable-gpu");
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("headless");
+        chromeOptions.addArguments("disable-gpu");
+        cap.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver(options);
-        driver.get("https://www.google.com");
-        System.out.println("Title of the page is: " + driver.getTitle());
-        Assert.assertTrue(driver.getTitle().equals("Google"));
+        try {
+            driver = new RemoteWebDriver(new URL("http://15.206.212.95:4444/wd/hub"), cap);
+            driver.get("https://www.google.com");
+            System.out.println("Title of the page is: " + driver.getTitle());
+            Assert.assertTrue(driver.getTitle().equals("Google"));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
