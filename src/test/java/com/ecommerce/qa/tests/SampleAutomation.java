@@ -21,9 +21,9 @@ public class SampleAutomation {
         chromeOptions.addArguments("headless");
         chromeOptions.addArguments("disable-gpu");
         cap.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
-        WebDriverManager.chromedriver().setup();
+        //WebDriverManager.chromedriver().setup();
         try {
-            driver = new RemoteWebDriver(new URL("http://15.206.212.95:4444/wd/hub"), cap);
+            driver = new RemoteWebDriver(new URL("http://13.126.36.8:4444/wd/hub"), cap);
             driver.get("https://www.google.com");
             System.out.println("Title of the page is: " + driver.getTitle());
             Assert.assertTrue(driver.getTitle().equals("Google"));
