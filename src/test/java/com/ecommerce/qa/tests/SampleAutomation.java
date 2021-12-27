@@ -19,21 +19,21 @@ public class SampleAutomation {
         WebDriver driver;
         System.out.println("Executing from Jenkins");
         Assert.assertEquals("Hello", "Hello");
-        DesiredCapabilities cap = DesiredCapabilities.chrome();
-        //ChromeOptions chromeOptions = new ChromeOptions();
-        //chromeOptions.addArguments("headless");
-        //chromeOptions.addArguments("disable-gpu");
-       // cap.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
-        //WebDriverManager.chromedriver().setup();
-        cap.setCapability("version","94.0.4606.61");
-        cap.setPlatform(Platform.LINUX);
-        try {
-            driver = new RemoteWebDriver(new URL("http://65.2.79.227:4444/wd/hub"), cap);
-            driver.get("https://www.google.com");
-            System.out.println("Title of the page is: " + driver.getTitle());
-            Assert.assertTrue(driver.getTitle().equals("Google"));
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+//        DesiredCapabilities cap = DesiredCapabilities.chrome();
+//        ChromeOptions chromeOptions = new ChromeOptions();
+//        chromeOptions.addArguments("headless");
+//        chromeOptions.addArguments("disable-gpu");
+//        cap.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+//        //WebDriverManager.chromedriver().setup();
+//        cap.setCapability("version","94.0.4606.61");
+//        //cap.setPlatform(Platform.LINUX);
+//        try {
+//            driver = new RemoteWebDriver(new URL("http://65.2.79.227:4444/wd/hub"), cap);
+//            driver.get("https://www.google.com");
+//            System.out.println("Title of the page is: " + driver.getTitle());
+//            Assert.assertTrue(driver.getTitle().equals("Google"));
+//        } catch (Exception e) {
+//            System.out.println(e.getMessage());
+//        }
     }
 }
